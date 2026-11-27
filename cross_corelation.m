@@ -1,0 +1,26 @@
+clc;
+clear all;
+close all;
+
+fm=2;
+fs=1000;
+t=-2:1/fs:2;
+x=sin(2*pi*fm*t);
+subplot(5,1,1);
+plot(t,x);
+title('sin wave');
+[r,lag]=xcorr(x);
+subplot(5,1,2);
+plot(lag,r);
+title('auto correlation');
+y=cos(pi/2-2*pi*fm*t);
+subplot(5,1,3);
+plot(t,y);
+title('cos wave');
+subplot(5,1,4);
+[r1,lag1]=xcorr(y,x);
+plot(lag1,r1);
+title('cross correlation');
+subplot(5,1,5);
+plot(lag1,-conv2(x,y));
+title('correlation from convolution');

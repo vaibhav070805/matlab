@@ -1,0 +1,22 @@
+clc;
+clear all;
+close all;
+t=0:1/20:3.14;
+x1=2*sin(t);
+a=3;
+x2=a.^(2*t);
+h=dirac(t);
+ind=h==Inf;
+h(ind)=1;
+y1=conv2(x1,h);
+y2=conv2(x2,h);
+w1=conv2(y1,y2);
+s1=conv2(x1,x2);
+s2=conv2(s1,h);
+disp(w1);
+disp(s2);
+figure;
+subplot(2,1,1)
+plot(w1);
+subplot(2,1,2);
+plot(s2);

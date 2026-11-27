@@ -1,0 +1,10 @@
+clc;
+close all;
+clear all;
+%w=0.05;
+f=20;
+fs=100;
+digital_f=2*atan(pi*f/(fs));
+%analog_w=2*fs*tan(w/2);
+%disp(analog_w);
+disp(digital_f);
